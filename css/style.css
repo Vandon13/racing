@@ -7,6 +7,12 @@
 body {
 	padding: 0;
 	margin: 0;
+	font-family: 'Neucha', cursive;
+}
+
+.start {
+	font-size: 36px;
+	text-align: center;
 }
 
 .hide {
