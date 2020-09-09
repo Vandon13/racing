@@ -1,26 +1,39 @@
-*,
-*::before,
-*::after {
-	box-sizing: border-box;
-}
-
 body {
-	padding: 0;
-	margin: 0;
-	font-family: 'Neucha', cursive;
+  font-family: "Neucha", cursive;
 }
 
 .start {
-	font-size: 36px;
-	text-align: center;
+  font-size: 36px;
+  text-align: center;
 }
 
 .hide {
-	display: none;
+  display: none;
 }
 
-.car {
-	width: 50px;
-	height: 100px;
-	background: transparent url('../image/player.png') center / cover no-repeat;
+.car,
+.enemy {
+  position: absolute;
+  left: 125px;
+  bottom: 10px;
+  background: transparent url("../image/player.png") center / cover no-repeat;
+  width: 50px;
+  height: 100px;
+}
+
+.gameArea {
+  position: relative;
+  overflow: hidden;
+  margin: auto;
+  width: 300px;
+  height: 100%;
+  background: #222222;
+}
+
+.line {
+  position: absolute;
+  left: 145px;
+  width: 10px;
+  height: 50px;
+  background-color: #ffffff;
 }
