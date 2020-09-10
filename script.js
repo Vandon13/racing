@@ -36,6 +36,16 @@ function startGame() {
 		gameArea.append(line);
 	}
 
+	for (let i = 0; i < getAmountElements(100 * settings.traffic); i++){
+		const enemy = document.createElement('div');
+		enemy.classList.add('enemy');
+		enemy.y = -100 * settings.traffic * (i + 1);
+		enemy.style.top = enemy.y + 'px';
+		enemy.style.left = Math.floor(Math.random() * (gameArea.offsetWidth - 50)) + 'px';
+		enemy.style.background = 'transparent url(./image/enemy2.png) center / cover no-repeat';
+		gameArea.appendChild(enemy);
+	}
+
 	settings.start = true;
 	gameArea.append(car);
 	settings.x = car.offsetLeft;
@@ -60,7 +70,7 @@ function stopMove(event) {
 function moveRoad() {
 	let lines = document.querySelectorAll('.line');
 	lines.forEach((line) => {
-		line.y += settings.speed;
+		line.y += settings.speed ;
 		line.style.top = line.y + 'px';
 
 		if (line.y > document.documentElement.clientHeight) {
@@ -69,9 +79,22 @@ function moveRoad() {
 	});
 }
 
+function moveEnemy() {
+	let enemy = document.querySelectorAll('.enemy');
+	enemy.forEach((item) => {
+		item.y += settings.speed / 2;
+		item.style.top = item.y + 'px';
+	if (item.y >= document.documentElement.clientHeight) {
+		item.y = -100 * settings.traffic;
+		item.style.left = Math.floor(Math.random() * (gameArea.offsetWidth - 50)) + 'px';
+		}
+	});
+}
+
 function playGame() {
 	if (settings.start === true) {
 		moveRoad();
+		moveEnemy();
 		if (keys.ArrowLeft === true && settings.x > 0) {
 			settings.x -= settings.speed;
 		}
