@@ -1,10 +1,10 @@
 body {
 	font-family: "Neucha", cursive;
+	overflow: hidden;
 }
 
-.start {
-	font-size: 36px;
-	text-align: center;
+button {
+	outline: none;
 }
 
 .hide {
@@ -14,8 +14,6 @@ body {
 .car,
 .enemy {
 	position: absolute;
-	left: 125px;
-	bottom: 10px;
 	background: transparent url("../image/player.png") center / cover no-repeat;
 	width: 50px;
 	height: 100px;
@@ -36,4 +34,28 @@ body {
 	width: 10px;
 	height: 50px;
 	background-color: #ffffff;
+}
+
+.start,
+.score {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 200;
+	margin: 0;
+	padding: 1rem 0;
+	border: 5px solid #36c14b;
+	width: 100%;
+	font-family: 'Neucha', cursive;
+	font-size: 36px;
+	text-align: center;
+	background-color: #36c14b;
+	color: #ffffff;
+	transition: 0.3s
+}
+
+.start:hover {
+	border: 5px solid #ffffff;
+	background-color: #ffffff;
+	color: #36C14B;
 }
